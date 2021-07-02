@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "494c455c-cc92-46e1-888b-c25bf29d49b5"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -8,6 +11,13 @@
       "schematics": {
         "@schematics/angular:application": {
           "strict": true
+        },
+        
+        "@schematics/angular:component": {
+          "flat": true,
+          "inlineStyle": true,
+          "inlineTemplate": true,
+          "skipTests": true
         }
       },
       "root": "",

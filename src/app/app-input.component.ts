@@ -14,6 +14,3 @@ export class AppInputComponent {
   @Output() inputNew = new EventEmitter<string>();
 }
 
-aaa
-
-aazezae
