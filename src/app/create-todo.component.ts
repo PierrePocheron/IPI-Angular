@@ -5,6 +5,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
   template: `
    <input type='text' [(ngModel)]="todo" />
    <button (click)="addTodo()">Creer</button>
+   
   `,
   styles: [
   ]

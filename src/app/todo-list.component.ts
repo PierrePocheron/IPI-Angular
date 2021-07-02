@@ -1,12 +1,13 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import Todo from './todo';
 
 @Component({
   selector: 'app-todo-list',
   template: `
     <ul>
-      <li *ngFor="let todo of todoList">
-        {{todo}}
-      </li>
+      <ng-template ngFor let-todot [ngForOf]="todoList">
+        <app-todo-list-item [todoItem]="todot" (deleteEvent)="deleteTodoById($event)"></app-todo-list-item>
+      </ng-template>
     </ul>
   `,
   styles: [
@@ -14,6 +15,11 @@ import { Component, Input } from '@angular/core';
 })
 export class TodoListComponent {
 
-  @Input() todoList: string[] = []
+  @Input() todoList: Todo[] = []
+  @Output() todoToDeleteEvent = new EventEmitter<number>()
+
+  deleteTodoById(todoIdToDelete: number): void {
+    this.todoToDeleteEvent.emit(todoIdToDelete)
+  }
 
 }
