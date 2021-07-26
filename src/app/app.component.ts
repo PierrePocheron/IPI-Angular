@@ -4,9 +4,11 @@ import { TodoService } from './todo.service';
 @Component({
   selector: 'app-root',
   template: `
-  <app-create-todo (todoToAdd)="addTodo($event)"></app-create-todo>
-  <app-todo-list></app-todo-list>
-  <button mat-raised-button color="warn" (click)="dumpTodoList()">Vider</button>
+  <div class="container">
+    <app-create-todo (todoToAdd)="addTodo($event)"></app-create-todo>
+    <app-todo-list></app-todo-list>
+    <button mat-raised-button color="warn" (click)="dumpTodoList()">Vider</button>
+  </div>
   `,
   styles: ['']
 })
