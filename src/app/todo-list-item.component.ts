@@ -4,7 +4,7 @@ import Todo from './todo';
 @Component({
   selector: 'app-todo-list-item',
   template: `
-    <li>{{todoItem.todo}} <button (click)="deleteThisTodo()">SUPPRIMER</button> </li>
+    <mat-list-item>{{todoItem.todo}} <button mat-raised-button color="accent" (click)="deleteThisTodo()">SUPPRIMER</button> </mat-list-item>
   `,
   styles: [
   ]

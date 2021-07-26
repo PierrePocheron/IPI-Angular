@@ -3,8 +3,11 @@ import { Component, EventEmitter, Output } from '@angular/core';
 @Component({
   selector: 'app-create-todo',
   template: `
-   <input type='text' [(ngModel)]="todo" />
-   <button (click)="addTodo()">Creer</button>
+   <mat-form-field appearance="standard">
+    <mat-label>Your todo</mat-label>
+    <input matInput matNativeControl [(ngModel)]="todo" />
+   </mat-form-field>
+   <button mat-raised-button color="primary" (click)="addTodo()">Creer</button>
    
   `,
   styles: [

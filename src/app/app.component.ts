@@ -1,34 +1,30 @@
 import { Component } from '@angular/core';
 import Todo from './todo';
+import { TodoService } from './todo.service';
 @Component({
   selector: 'app-root',
   template: `
   <app-create-todo (todoToAdd)="addTodo($event)"></app-create-todo>
-  <app-todo-list [todoList]="todos" (todoToDeleteEvent)="deleteTodoById($event)"></app-todo-list>
-  <button (click)="dumpTodoList()">Vider</button>
+  <app-todo-list></app-todo-list>
+  <button mat-raised-button color="warn" (click)="dumpTodoList()">Vider</button>
   `,
   styles: ['']
 })
 export class AppComponent {
   title: string = 'demo';
-  todos: Todo[] = [
 
-  ]
+  todoService: TodoService
   
-  addTodo(todoToAdd: string): void {
-    let todoCreated: Todo = {
-      id: Math.random(),
-      todo: todoToAdd
-    }
-    this.todos.push(todoCreated)
+  constructor(_todoService: TodoService) {
+    this.todoService = _todoService
   }
 
   dumpTodoList(): void {
-    this.todos = []
+    this.todoService.dumpTodo()
   }
 
-  deleteTodoById(todoIdToDelete: number): void {
-    this.todos = this.todos.filter(t => t.id !== todoIdToDelete)
+  addTodo(name: string): void {
+    this.todoService.addTodo(name)
   }
 }
 

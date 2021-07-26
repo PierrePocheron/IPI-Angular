@@ -6,6 +6,12 @@ import { AppComponent } from './app.component';
 import { CreateTodoComponent } from './create-todo.component';
 import { TodoListComponent } from './todo-list.component';
 import { TodoListItemComponent } from './todo-list-item.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button'
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatListModule } from '@angular/material/list'; 
+import { MatInputModule } from '@angular/material/input';
+
 
 @NgModule({
   declarations: [
@@ -16,7 +22,12 @@ import { TodoListItemComponent } from './todo-list-item.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatListModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
